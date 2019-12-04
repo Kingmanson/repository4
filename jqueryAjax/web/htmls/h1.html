@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>h1</title>
+    <script>
+
+        //定义数组存放所有图片路径
+        var arr = [
+            "../images/1.jpg",
+            "../images/2.jpg",
+            "../images/3.jpg",
+            "../images/4.jpg",
+            "../images/5.jpg",
+            "../images/6.jpg",
+        ];
+
+        //入口函数
+        var inte;
+        var n;
+        $(function () {
+
+            //设置两个按钮的状态
+            $("#startID").prop("disabled",false);
+            $("##stopID").prop("disabled",true);
+            $("#starteID").click(function(){
+                //设置两个按钮的状态
+                $("#startID").prop("disabled",true);
+                $("##stopID").prop("disabled",false);
+
+                //定义循环计时器
+                inte = setInterval(function(){
+                    //切换图片
+                    //获取小相框标签
+                    //随机数
+                     n = Math.floor(Math.random()*6);
+                    $("#img1ID").prop("src",arr[n]);
+                },100);
+            });
+
+            //给停止按钮绑定单击事件
+            $("#stopID").click(function () {
+                //设置两个按钮的状态
+                $("#startID").prop("disabled",false);
+                $("#stopID").prop("disabled",true);
+
+                //结束循环定时器
+                clearInterval(inte);
+                //获取大相框标签对象
+                $("#imgID").prop("src",arr[n]);
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

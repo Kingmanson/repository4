@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-migrate-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+        function fun() {
+            //使用$.ajax()请求服务器
+            $.ajax({
+                url : "/jq/ajaxServlet",
+                type:"GET",
+                // data:"username=zhangsan&age=123",
+                data:{"username":"zhangsan","age":123},
+                success:function(data){
+                    alert(data);
+                },//请求服务器成功的响应
+                error:function(){
+                    alert("请求错误了");
+                },
+                dataType : "text"
+            });
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="发送异步请求" onclick="fun();"><input>
+
+</body>
+</html>
